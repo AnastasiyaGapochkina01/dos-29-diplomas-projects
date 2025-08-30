@@ -1,5 +1,24 @@
 # dos-29-diplomas-projects
-Для каждого студента, отметившегося в [табличке](https://docs.google.com/spreadsheets/d/1M_BU4KbufdWySid9VoScDnLyckia0eS3u2mMIsl2oQE/edit?usp=sharing) создана _персональная_ ветка в этом репозитории, где лежит его проект. 
+## Dnevnik
+Приложение для ведения электронного журнала преподавателя с функциями учета посещаемости, управления группами и студентами, а также ведения домашних заданий
 
-> [!WARNING]  
-> Работу вести следует в _своем_ репозитории, который содержит _только_ ваш проект
+### Функционал
+- Управление группами и студентами (добавление, удаление)
+- Ведение журнала посещаемости по группам
+- Домашние задания с редактором Markdown (для преподавателей) и рендером + возможностью отправить ссылку на GitHub (для студентов)
+- Контроль сроков публикации и дедлайна заданий
+- Хранение паролей в базе в хэшированном виде с bcrypt
+
+### Запуск
+Для начала работы надо применить миграции
+```python
+flask db init
+flask db migrate -m "Initial migration."
+flask db upgrade
+```
+И создать пользователей и админа
+```python
+flask create-user teacher1 secretpassword teacher
+flask create-user student1 secretpassword student
+flask create-user admin adminsecretpassword admin
+```
