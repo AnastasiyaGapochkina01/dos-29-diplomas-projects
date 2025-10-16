@@ -59,3 +59,8 @@ curl -X POST "http://localhost:8000/api/books/" \
 # получить список книг по статусу
 curl "http://localhost:8000/api/books/?user_id=1&status=прочитано"
 ```
+#### Запуск тестов
+В директории bot/
+```bash
+PYTHONPATH=./ pytest tests/
+```
